@@ -26,7 +26,8 @@ def ensure_same_keys(data, whole_set):
     return status
 
 def look_for(prefix):
-    return [prefix, prefix+".prod", prefix+".production", prefix+".staging", prefix+".dev"]
+    return [prefix, prefix+".prod", prefix+".production",
+            prefix+".staging", prefix+".dev", prefix+".sample"]
 
 
 def main():
