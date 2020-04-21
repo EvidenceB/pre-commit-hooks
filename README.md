@@ -17,6 +17,23 @@ Pour ajouter un precommit dans ce dépot, il faut imiter les autres precommit
 1/ ajouter une ligne dans `setup.cfg`
 2/ ajouter un fichier python dans le dossier pre-commit qui retourne 1 (fail) ou 0 (success) à l'execution
 
+côté dépot, après l'installation de pre-commit, il faut rajouter
+```
+-   repo: git@github.com:EvidenceB/pre-commit-hooks.git
+    rev: v2.6.2
+    hooks:
+    -   id: check-dotenvs
+```
+à `.pre-commit-config.yaml`
+
+## MISES A JOUR
+
+precommit utilise préfentiellement les tags de versions.
+Donc : 
+- côté hooks (ce dépot) il faut par exemple `git tag v2.6.2` et `git push --tags`
+- côté dépot `pre-commit autoupdate` suffit. Il prend le dernier tag en date et update le fichier yaml.
+
+
 ## PRECOMMITS EVIDENCE-B
 
 
@@ -34,7 +51,7 @@ Add this to your `.pre-commit-config.yaml`
 
 ```yaml
 -   repo: https://github.com/evidenceB/pre-commit-hooks
-    rev: v2.5.0  # Use the ref you want to point at
+    rev: v2.6.2  # Use the ref you want to point at
     hooks:
     -   id: trailing-whitespace
     # -   id: ...
