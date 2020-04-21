@@ -7,6 +7,8 @@ def extract_set_keys(f: str) -> Set[str]:
     output_set = set()
     with open(f, "r") as finput:
         for line in finput:
+            if "=" not in line:
+                continue
             k = line.split("=")[0]
             output_set.add(k)
     return output_set
