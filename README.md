@@ -1,12 +1,31 @@
-[![Build Status](https://asottile.visualstudio.com/asottile/_apis/build/status/pre-commit.pre-commit-hooks?branchName=master)](https://asottile.visualstudio.com/asottile/_build/latest?definitionId=17&branchName=master)
-[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/asottile/asottile/17/master.svg)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=17&branchName=master)
-
 pre-commit-hooks
 ================
 
 Some out-of-the-box hooks for pre-commit.
 
 See also: https://github.com/pre-commit/pre-commit
+
+## INTRODUCTION
+
+C'est un fork qu'on alimente avec nos propres pre-commit hooks.
+Il faut suivre la doc de precommit (https://github.com/pre-commit/pre-commit) pour comprendre l'utilisation de ce framework dans la pratique.
+pre-commit est un outil qui permet de simplifier l'écriture et l'utilisation de precommit hooks.
+
+Un pre-commit hook peut être écrit dans différents languages (cf https://pre-commit.com/#new-hooks).
+
+Pour ajouter un precommit dans ce dépot, il faut imiter les autres precommit
+1/ ajouter une ligne dans `setup.cfg`
+2/ ajouter un fichier python dans le dossier pre-commit qui retourne 1 (fail) ou 0 (success) à l'execution
+
+## PRECOMMITS EVIDENCE-B
+
+
+checkdotenvs : permet lors de chaque commit, de s'assurer que les differents .env à la racine du projet 
+(.env, .env.prod, .env.staging, .env.sample) ont bien le même ensemble de clefs.
+
+Comme les .env ne sont pas suivis par git, mais que les .env.sample le sont, cela permet de nous alerter lorsqu'on 
+a oublié de mettre à jour .env.sample, ou réciproquement, si .env.sample a changé et que notre .env n'est plus à jour.
+
 
 
 ### Using pre-commit-hooks with pre-commit

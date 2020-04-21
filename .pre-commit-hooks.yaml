@@ -16,6 +16,12 @@
     entry: check-ast
     language: python
     types: [python]
+-   id: check-dotenvs
+    name: Check dotenvs keys
+    description: Check that all the dotenvs have the same keys
+    entry: check-dotenvs
+    language: python
+    types: [text]
 -   id: check-byte-order-marker
     name: Check for byte-order marker
     description: Forbid files which have a UTF-8 byte-order marker
