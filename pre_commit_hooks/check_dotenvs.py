@@ -37,18 +37,18 @@ def main():
     statuses = []
     for sample in files_ending_with_sample:
         prefix = sample.replace(".sample", "")
-        print(sample, prefix)
         prefixed_files = [f for f in files if f in look_for(prefix)]
-        print(prefixed_files)
         data = {}
         whole_set = set()
         for f in prefixed_files:
             key_set = extract_set_keys(f)
             data[f] = key_set
             whole_set = whole_set | key_set
-
         statuses.append(ensure_same_keys(data, whole_set))
-    return all((s == SUCCESS for s in statuses))
+    for s in statuses:
+        if s == FAIL:
+            return FAIL
+    return SUCCESS
 
 if __name__ == "__main__":
     sys.exit(main())  # pragma: no cove
