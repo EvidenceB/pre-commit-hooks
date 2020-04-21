@@ -25,6 +25,9 @@ def ensure_same_keys(data, whole_set):
             status = FAIL
     return status
 
+def look_for(prefix):
+    return [prefix, prefix+".prod", prefix+".production", prefix+".staging", prefix+".dev"]
+
 
 def main():
     """Console script for check_env_sample."""
@@ -33,7 +36,7 @@ def main():
     statuses = []
     for sample in files_ending_with_sample:
         prefix = sample.replace(".sample", "")
-        prefixed_files = [f for f in files if f.startswith(prefix)]
+        prefixed_files = [f for f in files if f in look_for(prefix)]
         data = {}
         whole_set = set()
         for f in prefixed_files:
