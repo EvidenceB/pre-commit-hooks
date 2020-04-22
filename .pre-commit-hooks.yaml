@@ -21,7 +21,6 @@
     description: Check that all the dotenvs have the same keys
     entry: check-dotenvs
     language: python
-    types: [text]
 -   id: check-byte-order-marker
     name: Check for byte-order marker
     description: Forbid files which have a UTF-8 byte-order marker
