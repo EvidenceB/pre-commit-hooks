@@ -20,6 +20,7 @@
     name: Check dotenvs keys
     description: Check that all the dotenvs have the same keys
     entry: check-dotenvs
+    always_run: true
     language: python
 -   id: check-byte-order-marker
     name: Check for byte-order marker
